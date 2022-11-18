@@ -24,7 +24,7 @@ class DBManager:
         self.cursor.execute(f"DROP TABLE IF EXISTS attraction")
         print("已刪除舊的資料表")
 
-    # 刪除已存在的資料表
+    # 關閉資料庫
     def close(self):
         self.mysql_conn.close()
         print("關閉資料庫")
@@ -37,7 +37,7 @@ class DBManager:
             category VARCHAR(20) NOT NULL,\
             description TEXT NOT NULL,\
             address VARCHAR(50) NOT NULL,\
-            transport VARCHAR(255) ,\
+            transport text ,\
             mrt VARCHAR(20) ,\
             lat FLOAT UNSIGNED ,\
             lng FLOAT UNSIGNED ,\
@@ -49,7 +49,7 @@ class DBManager:
 
     # 寫入資料
     def insert_data(self, data):
-        sql = 'INSERT INTO attraction (name, category, description, address, transport, mrt , lat, images) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
+        sql = 'INSERT INTO attraction (name, category, description, address, transport, mrt , lat, lng, images) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'
         self.cursor.execute(sql, data)
         self.mysql_conn.commit()
         print("資料匯入完成.")
@@ -58,9 +58,8 @@ class DBManager:
 dbconfig = {
     'host':'127.0.0.1',
     'user':'root',
-    'password':'12341234',
+    'password':'MhWVpN$%Fd2u)FK',
     'database':'taipei_day_trip',
-    'client_flags': [mysql.connector.ClientFlag.SSL],
 }
 db_manager = DBManager(dbconfig)
 
@@ -88,13 +87,14 @@ with open("data/taipei-attractions.json", "r", encoding="utf-8") as file:
         for img in outputImgList:
             img = img.split("/")[-1:][0]
             imgs.append(img)
-
-        # 確認資料用
+        images=json.dumps(imgs)
+        address = item["address"].replace(" ", "")
+        # # 確認資料用
         # data={ #"id":item[i],
         #        "name": item["name"],
         #        "category": item["CAT"],
         #        "description": item["description"],
-        #        "address": item["address"],
+        #        "address": address,
         #        "transport": item["direction"],
         #        "mrt": item["MRT"],
         #        "lat": item["latitude"],
@@ -105,11 +105,12 @@ with open("data/taipei-attractions.json", "r", encoding="utf-8") as file:
         data = (item["name"],
                 item["CAT"],
                 item["description"],
-                item["address"],
+                address,
+                item["direction"],
                 item["MRT"],
                 item["latitude"],
                 item["longitude"],
-                str(imgs)
+                images
         )
         db_manager.insert_data(data)
     db_manager.close()
