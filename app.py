@@ -2,7 +2,7 @@ from flask import *
 from api.attraction_data import attraction_data
 from api.attraction_id import attraction_id
 
-app=Flask(__name__, static_folder="data", static_url_path="/")
+app=Flask(__name__, static_folder="public", static_url_path="/")
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 app.config['JSON_SORT_KEYS']=False
@@ -29,4 +29,4 @@ def thankyou():
 
 
 
-app.run(port=3000)
+app.run(host='0.0.0.0', port=3000, debug=False)
