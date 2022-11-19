@@ -79,7 +79,7 @@ def isImg(img):
         return img and img.strip()
 
 # 4.json檔案資料處理
-with open("data/taipei-attractions.json", "r", encoding="utf-8") as file:
+with open("taipei-attractions.json", "r", encoding="utf-8") as file:
     data=json.load(file) 
     dataList=data["result"]["results"]
     for item in dataList:
