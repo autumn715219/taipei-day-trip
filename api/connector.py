@@ -7,7 +7,7 @@ def connect():
 	load_dotenv()
 	return pooling.MySQLConnectionPool(
 		pool_name="myPool",
-		pool_size=1,
+		pool_size=5,
 		pool_reset_session=True,
 		host='127.0.0.1',
 		user='root',

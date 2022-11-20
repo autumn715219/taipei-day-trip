@@ -28,8 +28,8 @@ def getAttractionData():
 
         # 圖片
 		for i in range(len(result)):  
-			imaArray=json.loads(result[i]['images'])
-			result[i]['images']=imaArray
+			imgArray=json.loads(result[i]['images'])
+			result[i]['images']=imgArray
 		return result
 
 
