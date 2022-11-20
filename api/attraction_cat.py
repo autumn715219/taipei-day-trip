@@ -6,21 +6,16 @@ conn_pool=connector.connect()
 
 @attraction_cat.route('/api/categories')
 def getAttractionCat():
-    print("hello")
     cnx=conn_pool.get_connection()
     cursor=cnx.cursor(buffered=True, dictionary=True)
-
     def catQueryData(): 
-        cursor.execute("SELECT category FROM `attraction`")
+        cursor.execute("SELECT DISTINCT category FROM `attraction`")
         result = cursor.fetchall()
-        # 處理
         catArray = []
         for i in range(len(result)):  
             cat = result[i]['category']
-            if cat not in catArray:
-                catArray.append(cat)
+            catArray.append(cat)
         result = catArray
-        #print(result)
         return result
 
     def responseData(result):
