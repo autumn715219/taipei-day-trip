@@ -34,7 +34,7 @@ def getAttractionData():
 
 
 	def responseData(page, data):
-		if len(data) < pageSize:
+		if len(data) < pageSize: #10 <12  #12 < 12
 			response={"nextPage":None,"data":data}
 		else:
 			response={"nextPage":page+1,"data":data}
