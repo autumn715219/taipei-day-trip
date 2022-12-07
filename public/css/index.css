@@ -135,14 +135,33 @@ body {
   color: #000;
 }
 
-#gotop.white::before {
+#gotop.white:before {
   border-color: transparent transparent #000;
 }
 
-#gotop.white::after {
+#gotop.white:after {
   background-color: rgba(255, 255, 255, 0.95);
   -webkit-box-shadow: 0 1px 0 #f2f2f2, 0 0 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 0 #f2f2f2, 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none;
+}
+
+#loading {
+  background: url("/images/spinnercolor.gif") no-repeat center center;
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  display: none;
 }
 
 .topbar {
@@ -247,6 +266,25 @@ body {
 
 .topbar .container ul.navbar-list li a:hover {
   color: #448899;
+}
+
+.footer {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  background-color: #757575;
+}
+
+.footer .copyright {
+  padding: 45px 0;
+  display: -ms-grid;
+  display: grid;
+  line-height: 45px;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .header {
@@ -468,6 +506,8 @@ body {
 }
 
 .attraction ul.attration-wrp .card a.card-link .card-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   -webkit-transform-origin: top center;
@@ -517,42 +557,4 @@ body {
 .attraction ul.attration-wrp .card .card-detail .card-cat {
   text-align: right;
 }
-
-.footer {
-  position: relative;
-  display: -ms-grid;
-  display: grid;
-  justify-items: center;
-  width: 100%;
-  background-color: #757575;
-}
-
-.footer .copyright {
-  padding: 45px 0;
-  display: -ms-grid;
-  display: grid;
-  line-height: 45px;
-  color: #FFF;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.show {
-  display: block !important;
-}
-
-.hide {
-  display: none;
-}
-
-#loading {
-  background: url("/images/spinnercolor.gif") no-repeat center center;
-  position: absolute;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
-  display: none;
-}
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=index.css.map */

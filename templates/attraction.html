@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />  
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/attraction.css">
+    
     <title>台北一日遊</title>
 </head>
 <body>
@@ -26,26 +27,72 @@
 
 
         <main>
-            <div id="loading"></div>
-            <div class="Area Area-1200 attraction">
-                    <ul class="attration-wrp" id="attractionList">
-                        <!-- <li class="card">
-                            <a class="card-link" href="/">
-                                <div class="card-img"><img src="images/img.jpg" alt=""></div>
-                                <div class="card-title">平安鐘</div>
-                            </a>
-                            <div class="card-detail">
-                                <div class="card-mrt">忠孝復興</div>
-                                <div class="card-cat">公共藝術</div>
+            <div class="Area Area-1200 attraction-item">
+                <div class="box">
+                    <div class="item-slides">
+                        <div class="slides-container">
+                            <ul class="slides">
+                            </ul>
+                            <div class="arrow">
+                                <a class="prev" onclick="plusSlides(-1)"></a>
+                                <a class="next" onclick="plusSlides(1)" ></a>    
                             </div>
-                        </li> -->
-                    </ul>
+                            <div class="dot-wrp">
+                            </div>
+                        </div>
+
+                    </div> 
+
+                    <div class="item-product">
+                
+                        <div class="item-booking">
+                            <table>
+                                <p>
+                                    <b>訂購導覽行程</b><br>
+                                    以此景點為中心的一日行程，帶您探索城市角落故事  
+                                </p>
+                                <form id="trip_order_form">
+                                    <span class="title">選擇日期：</span>
+                                    <input type="date" id="start" name="trip-date" placeholder="yyyy-mm-dd" >
+                                    <br>
+                                    
+                                    <span class="title">選擇時間：</span>
+                                    <label class="form-control">
+                                    <input type="radio" name="radio" value="2000" checked/>
+                                    上半天
+                                    </label>
+                                    <label class="form-control">
+                                    <input type="radio" name="radio" value="2500"  />
+                                    下半天
+                                    </label>
+                                    <br>
+                                    
+                                    <span class="title">導覽費用：</span>
+                                    <span>新台幣<span class="item-dollar" id="dollar">2000</span>元</span>
+                                    <br>
+                                    <button type="submit" id="submit">開始預約行程</button>
+                                </form>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="box">
+                    <div class="item-details">
+
+                    </div>
+                </div>
+
             </div>
         </main>
 
-        <footer class="footer">
+        <div class="footer">
             <div class="copyright">COPYRIGHT © 2022 台北一日遊</div>
-        </footer>
+        </div>
     </div>
+    <script src="/js/attraction.js"></script>
 </body>
 </html>

@@ -1,0 +1,198 @@
+
+@import 'style';
+
+.header {
+    z-index: 2;
+    position: relative;
+    margin: 54px auto 0;
+    width: 100%;
+    height: 320px;
+    text-align: left;
+    background: url('/images/welcome.jpg') left center no-repeat;
+    background-size: cover;
+    @include mb{
+        width: 100%;
+        background-position:  left center;
+        background-size: cover;
+    }  
+    .container{
+        width: 1200px;
+        margin: 0 auto;
+        padding: 85px 0 0;
+        @include pad{
+            width: 96%;
+        }
+        @include mb{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .header-title{
+            margin-bottom: 15px;
+            color: #F8F8F8;
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: 0px 0px 30px #AABBCC;
+        }
+        .header-describe{
+            margin-bottom: 15px;
+            color: #F8F8F8;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .search-form{
+            position: relative;
+            input{
+                display: block;
+                padding: 15px;
+                width: 400px;
+                height: 46px;
+                color: #757575;
+                border-radius: 5px 0 0 5px;
+                font-size: 16px; 
+                font-weight: 700;
+                background-color: #FFF;
+                box-sizing: border-box;
+                @include mb{
+                    width: 63vw;
+                    margin: 0 ;
+                }
+            }
+            button{
+                position: absolute;
+                bottom:0;
+                left: 400px;
+                cursor: pointer;
+                width: 60px;
+                height: 46px;
+                padding: 0;
+                border-radius: 0 5px 5px 0;
+                background: #448899 url($search-icon) center center no-repeat;
+                box-sizing: border-box;
+                transition: background-color ease .2s;
+                @include mb{
+                    left: 63vw;
+                    width: 16vw;
+                    margin: 0 ;
+                }
+                &:hover{
+                    background-color: #00586d;
+                }
+            }
+        }
+        #catList{ 
+            display: none;
+            margin-top: 2px;
+            width: 400px;
+            background-color: #FFF;
+            border-radius: 5px;
+            @include mb{
+                width: 79vw;
+            }
+            ul{
+                display: grid; 
+                grid-template-columns: repeat(3, 1fr);
+                padding: 10px;
+                li{
+                    display: grid;
+                    width: 100%;
+                    height: 25%;
+                    a{  
+                        cursor: pointer;
+                        padding: 10px 15px;
+                        line-height: 20px;
+                        border-radius: 4px;
+                        font-size: 14px;
+                        &:hover{
+                            background-color: #E8E8E8;
+                        }
+                        &:aactive{
+                            background-color: #E8E8E8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.attraction{
+    margin: 15px auto;
+    padding: 15px;
+    text-align: center;
+    ul.attration-wrp{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: var(--gap-size);
+        width: 100%;
+        @include pad{ 
+            grid-template-columns: repeat(3,1fr);
+        }
+        @include mb{ 
+            grid-template-columns: repeat(1,1fr);
+        }
+        .card{
+            position: relative;
+            display:grid ;
+            border-radius: 5px;
+            border: .5px solid #757575;
+            overflow: hidden;
+            text-align: left;
+            @include mb{ 
+                width: 100%;
+                overflow-x: hidden;
+           }
+            a.card-link{
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 197px;
+                overflow: hidden;
+                &:hover .card-img{
+                    transform: scale(1.2);
+                }
+                .card-img{
+                    height: 197px;
+                    transition: transform ease .3s;
+                    img{
+                        object-fit: cover;
+                        transform: scale(1.1);
+                        transform-origin: top center;
+                        @include mb{ 
+                            transform-origin: center bottom;
+                       }
+                    }
+                }
+                .card-title{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    padding: 0 10px;
+                    width: 100%;
+                    height: 40px;
+                    font-size: 16px;
+                    line-height: 40px;
+                    color: #FFF;
+                    background-color: rgba(0,0,0,.6);
+                }
+            }
+            .card-detail{
+                padding: 0 10px;
+                display: grid;
+                grid-template-columns: 50% 50%;
+                .card-mrt, .card-cat{
+                    display:grid ;
+                    color: #757575;
+                    font-size: 16px;
+                    line-height: 45px;
+                }
+                .card-mrt{
+                    text-align: left;
+                }
+                .card-cat{
+                    text-align: right;
+                }
+            }
+
+        }
+    }
+}

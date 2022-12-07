@@ -1,4 +1,3 @@
-
 /*------------------------------
  2022/11/25 - v1.0 載入景點 
  -------------------------------*/
@@ -7,6 +6,9 @@ let page = 0;
 let keyword = '';
 let url="api/attractions?page=0"; //初次載入的url
 const attractionContainer = document.querySelector("#attractionList");
+
+//清除js
+const clearHTML = (name) => { name.innerHTML = "";};
 
 // 載入時的 icon
 const loadingEle = document.querySelector("#loading");
@@ -77,16 +79,19 @@ observer.observe(footer);
  -------------------------------*/
  const txtSearchInput = document.querySelector('#txtSearchInput');
  const txtSearchBtn = document.querySelector('#txtSearchBtn');
- const clearAttraction = () => { attractionContainer.innerHTML = "";};
+ const attractionWrp = document.querySelector(".attraction");  
+ const attractionErr = document.querySelector('#attractionErr');
 
  function keywordSearch(keyword){
     url=`api/attractions?page=0&keyword=${keyword}`;
-    clearAttraction();
+    clearHTML(attractionContainer);
+    clearHTML(attractionErr);
     if( isLoading === false ){
         isLoading == true;
         fetchAPI(url)
         .then((data)=>{
-            clearAttraction();
+            clearHTML(attractionContainer);
+            clearHTML(attractionErr);
             if( data['error'] === true){
                 errorMsg(data['message']);
                 observer.unobserve(footer);
@@ -100,7 +105,9 @@ observer.observe(footer);
             }
         }).catch(error=>{
             console.log(error);
-            attractionContainer.insertAdjacentHTML("beforebegin","很抱歉，找不到任何資料");
+            //clearHTML(attractionErr);
+
+            attractionErr.innerHTML="很抱歉找不到資料"
             isLoading===false;
             toggleLoading(false);
         })
@@ -129,15 +136,14 @@ txtSearchInput.addEventListener("keyup", (e)=>{
 const catListContainer = document.querySelector('#catList');
 const catListUl = document.querySelector('#catList > ul');
 const toggleCatList = (isShow) => {catListContainer.classList.toggle("show", isShow)};
-const clearcatListUl = () => { catListUl.innerHTML = ""; };
 const fillValue = (value) => { txtSearchInput.value = value ; toggleCatList(false); };
 
 txtSearchInput.addEventListener("click",(e)=> {
     toggleCatList(true);
-    clearcatListUl();
+    clearHTML(catListUl);
     fetchAPI('/api/categories')
     .then((data)=>{
-        catListUl.innerHTML = "";
+        clearHTML(catListUl);
         let catList = data.data;
         for (let i = 0; i < catList.length; i++) {
             const htmlStr =`<li><a class="cat-link" onclick="javascript:fillValue('${catList[i]}')">${catList[i]}</a></li>`;
@@ -152,7 +158,7 @@ txtSearchInput.addEventListener("click",(e)=> {
 document.addEventListener('click', function (e) {
     //e.preventDefault() //打開下面連結都會不能按
     if (txtSearchInput !== (e.target)) {
-        clearcatListUl();
+        clearHTML(catListUl);
         toggleCatList(false);
     }
   }, false);
