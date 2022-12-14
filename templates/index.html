@@ -10,16 +10,43 @@
     <title>台北一日遊</title>
 </head>
 <body>
+    <div id="loginNout" class="overlay">
+        <div class="box popup-box">
+            <div class="close"><a href="javascript:void(0);"></a></div>
+            <div id="signupForm" class="form">
+                <h3>註冊會員帳號</h3>
+                <hr>
+                <input type="text" id="signupName" name="signupName" placeholder="輸入姓名"/>
+                <input type="email" id="signupEmail" name="signupEmail"  placeholder="輸入電子郵件"/>
+                <input type="password" id="signupPassword" name="signupPassword" placeholder="輸入密碼"/>
+                <div class="alert" id="signupAlert"></div>
+                <button type="submit" onclick="signupSubmit()">註冊新帳戶</button>
+                <div>已經有帳戶了嗎？<a id="clickLogin" class="login-link" href="javascript:void(0);">點此登入</a></div>
+            </div>
+            <div id="loginForm" class="form">
+                <h3>登入會員帳號</h3>
+                <hr>
+                <input type="email" id="loginEmail" name="loginEmail"  placeholder="輸入電子郵件"/>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="輸入密碼"/>
+                <div class="alert" id="loginAlert"></div>
+                <button type="submit" onclick="loginSubmit()">登入帳戶</button>
+                <div>還沒有帳戶嗎？<a id="clickSignup" class="login-link" href="javascript:void(0);">點此註冊</a></div>
+            </div>
+            <!-- </form> -->
+        </div>
+    </div>
     <div class="WRAPPER">
         <div id="gotop" class="">TOP</div>
-
         <div class="topbar">
             <div class="container">
                 <h2 class="logo"><a href="/">台北一日遊</a></h2>
                 <nav class="navbar">
                 <ul class="navbar-list">
                     <li><a href="/">預定行程</a></li>
-                    <li><a href="/">登入/註冊</a></li>
+                    <li>
+                        <a id="loginSignupLink" href="javascript: popup('#loginNout');">登入/註冊</a>
+                        <a id="logoutLink" href="javascript: deleteAccount();">登出</a>
+                    </li>
                 </ul>
                 </nav> 
             </div>   
@@ -40,16 +67,6 @@
             <div id="loading"></div>
             <div class="Area Area-1200 attraction">
                     <ul class="attration-wrp" id="attractionList">
-                        <!-- <li class="card">
-                            <a class="card-link" href="/">
-                                <div class="card-img"><img src="images/img.jpg" alt=""></div>
-                                <div class="card-title">平安鐘</div>
-                            </a>
-                            <div class="card-detail">
-                                <div class="card-mrt">忠孝復興</div>
-                                <div class="card-cat">公共藝術</div>
-                            </div>
-                        </li> -->
                     </ul>
                     <div id="attractionErr"></div>
             </div>
@@ -59,7 +76,11 @@
             <div class="copyright">COPYRIGHT © 2022 台北一日遊</div>
         </footer>
     </div>
-<!-- <script src="/js/fetch.js" defer></script> -->
-<script src="/js/index.js" defer></script>
+<script language="javascript" type="text/javascript" src="/js/index.js" defer></script>
+<script language="javascript" type="text/javascript" src="/js/login.js"></script>
+
+<script>
+    
+</script>
 </body>
 </html>
