@@ -30,7 +30,7 @@ fetch("/api/user/auth",{
 })
 .then(resp=>resp.json())
 .then(function(bookingData){
-    console.log(bookingData)
+    //console.log(bookingData)
     if(bookingData.data){
         //console.log(bookingData)
         bookingArea.style.display = "block";

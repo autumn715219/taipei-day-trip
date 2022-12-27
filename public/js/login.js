@@ -202,18 +202,20 @@ function reload() {
     }).then(function (data) {
       if ( data.error === true) { 
         //未登入狀態
-          loginSignupLink.style.display = 'block';
-          signupForm.style.display = 'none';
+        loginSignupLink.style.display = 'block';
+        signupForm.style.display = 'none';
+          clickBooking.addEventListener('click',function(){
+            document.getElementById('loginNout').style.display = 'block';
+          })
       } else { 
-          //登入狀態
-          logoutLink.style.display = 'block';
-          loginForm.style.display = 'none';
-          if(clickBooking){
-            clickBooking.addEventListener('click',function(){
-              clickBooking.classList.remove('popup-btn');
-              location.href="/booking";
-            })
-          }
+        //登入狀態
+        logoutLink.style.display = 'block';
+        loginForm.style.display = 'none';
+        if(clickBooking){
+          clickBooking.addEventListener('click',function(){
+            location.href="/booking";
+          })
+        }
 
       }
     })

@@ -128,19 +128,20 @@ bookingButton.addEventListener('click',function(){
     fetchAPI('/api/user/auth')
     .then(function(data){
         if(data.data != undefined){
-            console.log(data.data)
+            //console.log(data.data)
             let bookingData = {
                 "attractionId": id,
                 "date": tripDate.value,
                 "time": getRadioButtonValue(),
                 "price": dollar.textContent
             };
-            //console.log(bookingData)
+            //console.log(bookingData);
             scheduleNewBooking(bookingData);
         }else{
             //console.log(data);
             noticeMsg.textContent = '請先登入會員';
-            document.getElementById('notice').style.display = 'block';        }
+            document.getElementById('notice').style.display = 'block';        
+        }
     })
 });
 
