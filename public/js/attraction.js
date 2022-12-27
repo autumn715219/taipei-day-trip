@@ -157,11 +157,11 @@ async function scheduleNewBooking(data) {
     try {
       let resp = await fetch(url, options);
       let result = await resp.json();
-      if (resp.status === 200) {
+      if (result.ok) {
         console.log(result);
         console.log("成功新增");
         document.location.href = '/booking';
-      } else if (resp.status === 400) {
+      } else {
         console.log(result.message)
         noticeMsg.textContent = result.message;
         document.getElementById('notice').style.display = 'block';
