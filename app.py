@@ -3,6 +3,7 @@ from api.attraction_data import attraction_data
 from api.attraction_id import attraction_id
 from api.attraction_cat import attraction_cat
 from api.member import member
+from api.booking import booking
  
 app=Flask(__name__, static_folder="public", static_url_path="/")
 app.config["JSON_AS_ASCII"]=False
@@ -14,6 +15,7 @@ app.register_blueprint(attraction_data)
 app.register_blueprint(attraction_id)
 app.register_blueprint(attraction_cat)
 app.register_blueprint(member)
+app.register_blueprint(booking)
 
 
 

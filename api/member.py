@@ -2,7 +2,6 @@ from flask import *
 import api.connector as connector
 # 登入會員驗證
 import jwt
-import time
 from datetime import datetime, timedelta
 # key加密
 import os
@@ -69,13 +68,10 @@ def userLogin():
         if result is not None:
             exptime = datetime.now() + timedelta(days=7)
             exp_timestemp = exptime.timestamp()
-            current_time = int(time.time())
             payload = {
                 'id': result[0],
                 'name': result[1],
                 'email': result[2],
-                'iat': current_time,
-                'exp': exp_timestemp,
             }
             encoded_jwt = jwt.encode(payload=payload, key=key, algorithm="HS256")
             response = make_response(jsonify({"ok": True}), 200)

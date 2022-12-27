@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />  
     <link rel="stylesheet" href="../css/attraction.css">
     
-    <title>台北一日遊</title>
+    <title>景點介紹-台北一日遊</title>
 </head>
 <body>
-    <div id="loginNout" class="overlay">
+    <div id="loginNout" class="popup">
         <div class="box popup-box">
-            <div class="close"><a href="javascript:void(0);"></a></div>
+            <div class="popup-close"><a href="javascript:void(0);"></a></div>
             <div id="signupForm" class="form">
                 <h3>註冊會員帳號</h3>
                 <hr>
@@ -36,6 +36,12 @@
             <!-- </form> -->
         </div>
     </div>
+    <div id="notice" class="popup">
+        <div class="box popup-box">
+            <div class="popup-close"><a href="javascript:void(0);"></a></div>
+            <div class="notice" id="noticeMsg"></div>
+        </div>
+    </div>
     <div class="WRAPPER">
         <div id="gotop" class="white">TOP</div>
         <div class="topbar">
@@ -43,10 +49,10 @@
                 <h2 class="logo"><a href="/">台北一日遊</a></h2>
                 <nav class="navbar">
                 <ul class="navbar-list">
-                    <li><a href="/booking.html">預定行程</a></li>
+                    <li><a class="popup-btn" data-popup="loginNout" id="clickBooking" href="javascript: void(0);">預定行程</a></li>
                     <li>
-                        <a id="loginSignupLink" href="javascript: popup('#loginNout');">登入/註冊</a>
-                        <a id="logoutLink" href="javascript: deleteAccount();">登出</a>
+                        <a class="popup-btn" data-popup="loginNout" id="loginSignupLink" href="javascript: void(0);">登入/註冊</a>
+                        <a id="logoutLink" href="javascript: void(0);">登出</a>
                     </li>
                 </ul>
                 </nav> 
@@ -79,18 +85,18 @@
                                     <b>訂購導覽行程</b><br>
                                     以此景點為中心的一日行程，帶您探索城市角落故事  
                                 </p>
-                                <form id="trip_order_form">
+                                <div class="form" id="trip_order_form">
                                     <span class="title">選擇日期：</span>
-                                    <input type="date" id="start" name="trip-date" placeholder="yyyy-mm-dd" >
+                                    <input type="date" id="tripDate" name="trip-date" placeholder="yyyy-mm-dd" >
                                     <br>
                                     
                                     <span class="title">選擇時間：</span>
                                     <label class="form-control">
-                                    <input type="radio" name="radio" value="2000" checked/>
+                                    <input type="radio" name="radio" value="moring" checked/>
                                     上半天
                                     </label>
                                     <label class="form-control">
-                                    <input type="radio" name="radio" value="2500"  />
+                                    <input type="radio" name="radio" value="afternoon"  />
                                     下半天
                                     </label>
                                     <br>
@@ -99,7 +105,7 @@
                                     <span>新台幣<span class="item-dollar" id="dollar">2000</span>元</span>
                                     <br>
                                     <button type="submit" id="submit">開始預約行程</button>
-                                </form>
+                                </div>
                             </table>
 
                         </div>
@@ -121,7 +127,7 @@
             <div class="copyright">COPYRIGHT © 2022 台北一日遊</div>
         </div>
     </div>
-    <script src="/js/attraction.js"></script>
     <script src="/js/login.js"></script>
+    <script src="/js/attraction.js"></script>
 </body>
 </html>
