@@ -1,0 +1,175 @@
+@import 'style';
+main{
+    margin-top: 54px;
+}
+.box{
+    padding: 0 5%;
+
+    @include pc{ 
+        padding: 0 100px;
+   }
+
+}
+.greet{    
+    color:#666;
+
+    &.title{
+        font-size: 19px;
+        font-weight: 700;
+    }
+    margin: 89px auto 35px;
+    @include mb{ 
+        margin: 89px auto 35px;
+    }
+}
+.noBooking{ 
+    height: 70vh;
+    color: #666;
+    @include mb{ 
+        height: 65vh;
+    }
+}
+.booking{
+    display: none;
+    color:#666;
+    font-size: 16px;
+
+    .booking-att{
+        position: relative;
+        @include pc{ 
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .title{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            width: 100%;
+            white-space: nowrap;
+        }
+        .att-img{
+            @include pc{ 
+                display: grid;
+                grid-column-start: 1;
+                grid-column-end: 2;       
+                width: 266px;
+                height: 200px;         
+           }
+            @include mb{ 
+                width: 100%;
+           }
+            img{
+                width: 100%;
+                aspect-ratio: 480/320;
+                object-fit: fill;
+            }
+        }
+        .att-info{         
+            font-weight: 700;
+            @include pc{ 
+                display: grid;
+                grid-column-start: 2;
+                grid-column-end: 3;
+            }
+            @include mb{
+                line-height: 2;
+            }
+            span{
+                font-weight: 500;
+            }
+            .att-title{
+                margin:0 0 10px;
+                color: $maincolor;
+            }
+        }
+        .att-delete{
+            position: absolute;
+            right:5%;
+            bottom: 0;
+
+            @include pc{
+                right:100px;
+                top:0;
+                bottom:auto;
+            }
+            a{ 
+                display: block;
+                width: 30px;
+                height: 30px;
+                background: #e5e5e5 url($delete-icon) no-repeat center center;
+                background-size: 100%;
+                border-radius: 5px;
+                border:1px solid #666;
+                transition: .2s ease;
+                filter: brightness(120%);
+
+                &:hover{
+                    filter: none;
+
+                }
+            }
+        }
+    }
+    .box-form{
+        line-height: 68px;
+        @include mb{
+            line-height: 2;
+        }
+        .title{
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+        .form-notice{
+            text-align: left;
+            line-height: 1.5;
+            margin-top: 10px;
+            font-weight: 700;
+            @include mb{
+                margin-top: 10px;
+            }
+        }
+        input{
+            margin: 5px 0;
+            padding: 10px;
+            height: 38px;
+            width: 230px;
+            font-size: 16px;
+            background-color: #FFF;
+            border:1px solid #666666;
+            border-radius: 5px;
+            &:focus{
+                border-width: 2px;
+            }
+            &.error:focus{
+                border-color: $error;
+            }
+            &.success:focus{
+                border-color: $success;
+            }
+        }
+
+    }
+    .booking-fee{
+        text-align: right;
+        margin-bottom:50px ;
+        .fee-dollar{
+            font-weight: 700;
+            span{
+                margin: 0 5px;
+            }
+        }
+        button{
+            margin: 25px 0 16px;
+            padding: 10px 20px;
+            line-height: 19px;
+            font-size: 19px;
+            color: #FFF;
+            background: #448899;
+            cursor: pointer;
+            border-radius: 5px;
+            @include mb{
+                margin: 10px 0 10px;
+            }
+        }
+    }
+
+}

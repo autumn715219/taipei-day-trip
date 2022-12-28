@@ -7,12 +7,12 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />  
     <link rel="stylesheet" href="/css/index.css">
-    <title>台北一日遊</title>
+    <title>首頁-台北一日遊</title>
 </head>
 <body>
-    <div id="loginNout" class="overlay">
+    <div id="loginNout" class="popup">
         <div class="box popup-box">
-            <div class="close"><a href="javascript:void(0);"></a></div>
+            <div class="popup-close"><a href="javascript:void(0);"></a></div>
             <div id="signupForm" class="form">
                 <h3>註冊會員帳號</h3>
                 <hr>
@@ -35,6 +35,12 @@
             <!-- </form> -->
         </div>
     </div>
+    <div id="notice" class="popup">
+        <div class="box popup-box">
+            <div class="popup-close"><a href="javascript:void(0);"></a></div>
+            <div class="notice" id="noticeMsg"></div>
+        </div>
+    </div>
     <div class="WRAPPER">
         <div id="gotop" class="">TOP</div>
         <div class="topbar">
@@ -42,10 +48,10 @@
                 <h2 class="logo"><a href="/">台北一日遊</a></h2>
                 <nav class="navbar">
                 <ul class="navbar-list">
-                    <li><a href="/">預定行程</a></li>
+                    <li><a id="clickBooking" href="javascript: void(0);">預定行程</a></li>
                     <li>
-                        <a id="loginSignupLink" href="javascript: popup('#loginNout');">登入/註冊</a>
-                        <a id="logoutLink" href="javascript: deleteAccount();">登出</a>
+                        <a class="popup-btn" data-popup="loginNout" id="loginSignupLink" href="javascript: void(0);">登入/註冊</a>
+                        <a id="logoutLink" href="javascript: void(0);">登出</a>
                     </li>
                 </ul>
                 </nav> 

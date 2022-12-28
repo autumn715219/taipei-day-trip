@@ -97,14 +97,78 @@ function showSlides(n) {
 // 價格變動
 const tripRadioList = document.getElementsByName('radio');
 const dollar = document.querySelector('#dollar');
+let tripRadioValue = "";
 function getRadioButtonValue() {
     for( let i=0 ; i<tripRadioList.length ; i++){
-       if(tripRadioList[i].checked){
-        dollar.innerHTML = tripRadioList[i].value ;
-        break;
-       }
+        if(tripRadioList[i].checked){
+            if (tripRadioList[i].value == "morning"){
+                dollar.textContent = 2000 ;
+            }
+            if (tripRadioList[i].value == "afternoon"){
+                dollar.textContent = 2500 ;
+            }
+            tripRadioValue = tripRadioList[i].value;
+            return tripRadioValue
+            //break;
+        }
     }
 }
 tripRadioList.forEach(function(radio) {
     radio.addEventListener("change", getRadioButtonValue);
 });
+
+//按下預定按鈕
+let bookingButton = document.getElementById("submit");
+let tripDate = document.getElementById("tripDate");
+let noticeMsg = document.getElementById("noticeMsg");
+
+//設定日期選取器最小值為今天
+tripDate.min = new Date().toISOString().split("T")[0];
+bookingButton.addEventListener('click',function(){
+    fetchAPI('/api/user/auth')
+    .then(function(data){
+        if(data.data != undefined){
+            //console.log(data.data)
+            let bookingData = {
+                "attractionId": id,
+                "date": tripDate.value,
+                "time": getRadioButtonValue(),
+                "price": dollar.textContent
+            };
+            //console.log(bookingData);
+            scheduleNewBooking(bookingData);
+        }else{
+            //console.log(data);
+            noticeMsg.textContent = '請先登入會員';
+            document.getElementById('notice').style.display = 'block';        
+        }
+    })
+});
+
+
+async function scheduleNewBooking(data) {
+    let url = "/api/booking"
+    let options = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json",
+      }
+    }
+    try {
+      let resp = await fetch(url, options);
+      let result = await resp.json();
+      if (result.ok) {
+        console.log(result);
+        console.log("成功新增");
+        document.location.href = '/booking';
+      } else {
+        console.log(result.message)
+        noticeMsg.textContent = result.message;
+        document.getElementById('notice').style.display = 'block';
+
+      }
+    } catch (err) {
+        console.log({ "error": err.message });
+    } 
+  }

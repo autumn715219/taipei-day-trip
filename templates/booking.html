@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />  
+    <link rel="stylesheet" href="../css/booking.css">
+    <title>訂購資訊-台北一日遊</title>
+</head>
+<body>
+    <div id="loginNout" class="popup">
+        <div class="box popup-box">
+            <div class="popup-close"><a href="javascript:void(0);"></a></div>
+            <div id="signupForm" class="form">
+                <h3>註冊會員帳號</h3>
+                <hr>
+                <input type="text" id="signupName" name="signupName" placeholder="輸入姓名"/>
+                <input type="email" id="signupEmail" name="signupEmail"  placeholder="輸入電子郵件"/>
+                <input type="password" id="signupPassword" name="signupPassword" placeholder="輸入密碼"/>
+                <div class="alert" id="signupAlert"></div>
+                <button type="submit" onclick="signupSubmit()">註冊新帳戶</button>
+                <div>已經有帳戶了嗎？<a id="clickLogin" class="login-link" href="javascript:void(0);">點此登入</a></div>
+            </div>
+            <div id="loginForm" class="form">
+                <h3>登入會員帳號</h3>
+                <hr>
+                <input type="email" id="loginEmail" name="loginEmail"  placeholder="輸入電子郵件"/>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="輸入密碼"/>
+                <div class="alert" id="loginAlert"></div>
+                <button type="submit" onclick="loginSubmit()">登入帳戶</button>
+                <div>還沒有帳戶嗎？<a id="clickSignup" class="login-link" href="javascript:void(0);">點此註冊</a></div>
+            </div>
+            <!-- </form> -->
+        </div>
+    </div>
+    <div id="notice" class="popup">
+        <div class="box popup-box">
+            <div class="popup-close"><a href="javascript:void(0);"></a></div>
+            <div class="notice" id="noticeMsg"></div>
+        </div>
+    </div>
+    <div class="WRAPPER">
+        <div id="gotop" class="white">TOP</div>
+        <div class="topbar">
+            <div class="container">
+                <h2 class="logo"><a href="/">台北一日遊</a></h2>
+                <nav class="navbar">
+                <ul class="navbar-list">
+                    <li><a id="clickBooking" href="javascript: void(0);">預定行程</a></li>
+                    <li>
+                        <a class="popup-btn" data-popup="loginNout" id="loginSignupLink" href="javascript: void(0);">登入/註冊</a>
+                        <a id="logoutLink" href="javascript: void(0);">登出</a>
+                    </li>
+                </ul>
+                </nav> 
+            </div>   
+        </div>
+
+        <main>
+            <div class="Area Area-1200 title greet">
+                <div class="box">
+                    您好，<span id="userName"></span>，待預定的行程如下：
+                </div>
+            </div>
+
+            <div class="Area Area-1200 noBooking" id="noBookingArea">
+                <div class="box">
+                    目前沒有任何待預定的行程
+                </div>
+            </div>
+            <div class="Area Area-1200 booking" id="bookingArea">
+                <div class="box booking-att">
+                    <div class="att-img"><img id="bookingImg" src="/"></div>
+                    <div class="att-info">
+                        <div class="att-title">台北一日遊，<span id="bookingName"></span></div>
+                        <div class="att-date">日期：<span id="bookingDate"></span></div>
+                        <div class="att-time">時間：<span id="bookingTime"></span></div>
+                        <div class="att-fee">費用：<span id="bookingFee"></span></div>
+                        <div class="att-location">地點：<span id="bookingLocation"></span></div>
+                    </div>               
+                    <div class="att-delete"><a id="bookingDelete" href="javascript:void(0);"></a></div>
+                </div>
+                <hr>
+                <div class="box booking-info box-form">
+                    <div class="title">您的聯絡資訊</div>
+                    <div class="form">
+                        <label for="userNameInput">聯絡姓名：</label>
+                        <input type="text" id="userNameInput" name="userNameInput" placeholder="輸入你的姓名">
+                        <br>
+                        <label for="userEmailInput">聯絡信箱：</label>
+                        <input type="text" id="userEmailInput" name="userEmailInput" placeholder="輸入你的Email">
+                        <br>
+                        <label for="userPhoneInput">手機號碼：</label>
+                        <input type="text" id="userPhoneInput" name="userPhoneInput" placeholder="輸入你的手機號碼">
+                        <div class="form-notice">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="box booking-card box-form">
+                    <div class="title">信用卡付款資訊</div>
+                    <div class="form">
+                        <label for="cardNum">卡片號碼：</label>
+                        <input type="text" id="cardNum" name="cardNum" pattern="[0-9\s]{13,19}" maxlength="16" placeholder="xxxx xxxx xxxx xxxx" required>
+                        <br>
+                        <label for="cardExp">過期時間：</label>
+                        <input type="text" id="cardExp" name="cardExp" placeholder="MM/YY" required>
+                        <br>
+                        <label for="cardCsv">驗證密碼：</label>
+                        <input type="text" id="cardCsv" name="cardCsv" placeholder="CSV" required>
+                    </div>
+                </div>
+                <hr>
+                <div class="box booking-fee">
+                    <div class="fee-dollar">總價：新台幣<span id="fee"></span>元</div>
+                    <button class="fee-button" type="submit" id="submit">確認訂購並付款</button>
+                </div>
+            </div>
+        </main>
+        <div class="footer">
+            <div class="copyright">COPYRIGHT © 2022 台北一日遊</div>
+        </div>
+    </div>
+    <script src="/js/login.js"></script>
+    <script src="/js/booking.js"></script>
+</body>
+</html>

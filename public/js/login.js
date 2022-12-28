@@ -13,10 +13,7 @@ let signupName = document.getElementById('signupName');
 let signupEmail = document.getElementById('signupEmail');
 let signupPassword = document.getElementById('signupPassword');
 let signupAlert = document.getElementById('signupAlert');
-
-let loginSignupLink = document.getElementById('loginSignupLink');
-let logoutLink = document.getElementById('logoutLink');
-
+let clickBooking = document.getElementById('clickBooking');
 
 //註冊帳戶
 function signupSubmit() {
@@ -161,6 +158,8 @@ async function loginAccount(data) {
       let resp = await fetch(url, options);
       let result = await resp.json();
       if (result.ok) {
+        loginAlert.classList.add('error');
+
         window.location.reload(); //重整
       }else {
         loginAlert.classList.add('error');
@@ -183,20 +182,41 @@ async function deleteAccount() {
         window.location.reload(); //重整
       }
     } catch (err) {
-      console.log({ "error": err.message });
+      console.log({ "error": err.message }); 
     }
 }
+
+let loginSignupLink = document.getElementById('loginSignupLink');
+let logoutLink = document.getElementById('logoutLink');
+
+
+logoutLink.addEventListener('click', function (e) {
+    deleteAccount();
+    location.href="/";
+});
+
 //重整執行函式與狀態顯示
 function reload() {
     fetch("/api/user/auth").then(function (resp) {
       return resp.json();
     }).then(function (data) {
-      if ( data.error === true) { //未登入狀態
-          loginSignupLink.style.display = 'block';
-          signupForm.style.display = 'none';
-      } else { //登入狀態
-          logoutLink.style.display = 'block';
-          loginForm.style.display = 'none';
+      if ( data.error === true) { 
+        //未登入狀態
+        loginSignupLink.style.display = 'block';
+        signupForm.style.display = 'none';
+          clickBooking.addEventListener('click',function(){
+            document.getElementById('loginNout').style.display = 'block';
+          })
+      } else { 
+        //登入狀態
+        logoutLink.style.display = 'block';
+        loginForm.style.display = 'none';
+        if(clickBooking){
+          clickBooking.addEventListener('click',function(){
+            location.href="/booking";
+          })
+        }
+
       }
     })
 }
@@ -206,15 +226,15 @@ reload();
 /*-----------------
  * 點擊登入登出事件
  -----------------*/
-let clickSignup = document.getElementById('clickSignup');
-let clickLogin = document.getElementById('clickLogin');
+const clickSignup = document.getElementById('clickSignup');
+const clickLogin = document.getElementById('clickLogin');
 
-//點擊註冊或登入按鈕
+//點擊註冊按鈕
 clickSignup.addEventListener('click', function (e) {
     signupForm.style.display = 'block';
     loginForm.style.display = 'none';//登出
 });
-//點擊註冊或登入按鈕
+//點擊登入按鈕
 clickLogin.addEventListener('click', function (e) {
     signupForm.style.display = 'none';
     loginForm.style.display = 'block';//登出
@@ -246,60 +266,27 @@ function validateEmail(email) {
 /*-----------------
  * 彈出視窗函式
  -----------------*/
-function popup(val) {
-    const ele = document.querySelector(val);
-	fadeToggle(val);
-    ele.style.top = getScrollTop() + 'px';
-    ele.style.display = 'block';
-}
-//彈出視窗關閉
-var overlay = document.querySelector('.overlay');
-var overlay_close = document.querySelector('.overlay .close');
+let popupBtns = document.querySelectorAll('.popup-btn');
+window.addEventListener("load", (event) => {
+  //點擊 Btn 打開對應 popup 視窗
+  popupBtns.forEach(function(btn) {
+    btn.onclick = function() {
+      let popup = btn.getAttribute('data-popup'); //html-->data-modal="modal2"
+      document.getElementById(popup).style.display = 'block';
+    };
+  });
+  //關閉按鈕
+  let closeBtns = document.querySelectorAll('.popup-close');
+  closeBtns.forEach(function(btn) {
+    btn.onclick = function() {
+      btn.closest('.popup').style.display = 'none';
+    }
+  });
 
-//關閉Ｘ
-overlay_close.addEventListener('click', function (e) {
-    fadeToggle('.overlay');
-    overlay.style.display = 'none';
+  //點灰處關閉
+  window.onclick = function(e) {
+    if(e.target.className === 'popup') {
+      e.target.style.display = 'none';  
+    }
+  }
 });
-
-// 仿Jquery漸變效果
-function fadeToggle(ele,speed){
-    let obj = document.querySelector(ele);
-    let opacity = obj.style.opacity ;
-    var speed = speed || 16.6; //預設速度為16.6ms
-    if( opacity == 0  ){
-        let num = 0;     
-        let timer =setInterval(function(){
-            num++;
-            obj.style.opacity = num / 20;
-            if(num >= 20){
-                clearInterval(timer);
-            }
-        },speed);
-    }
-    if( opacity == 1 && opacity >= 0 ){
-        let num = 20; 
-        let timer = setInterval(function(){
-            num--;
-            obj.style.opacity = num / 20;
-            if(num == 0){
-                clearInterval(timer);
-            }
-        },speed);
-    }
-}
-// 抓取距離頂端位置
-function getScrollTop(){
-    var bodyTop = 0;
-    if (typeof window.pageYOffset != "undefined") {
-      bodyTop = window.pageYOffset;
-  
-    } else if (typeof document.compatMode != "undefined"
-               && document.compatMode != "BackCompat") {
-      bodyTop = document.documentElement.scrollTop;
-  
-    } else if (typeof document.body != "undefined") {
-      bodyTop = document.body.scrollTop;
-    }
-    return bodyTop
-}

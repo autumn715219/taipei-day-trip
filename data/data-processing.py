@@ -62,6 +62,22 @@ class DBManager:
         self.mysql_conn.commit()
         print("已新增會員資料表.")
 
+    # 新增訂單資料表
+    def create_booking(self):
+        sql = 'CREATE TABLE booking(\
+            id BIGINT PRIMARY KEY AUTO_INCREMENT, \
+            member_id BIGINT NOT NULL,\
+            attraction_id BIGINT NOT NULL,\
+            date DATE NOT NULL,\
+            time VARCHAR(10) NOT NULL,\
+            price INT NOT NULL DEFAULT 2000,\
+            FOREIGN KEY(member_id) REFERENCES member(id) ON DELETE CASCADE ON UPDATE CASCADE, \
+            FOREIGN KEY(attraction_id) REFERENCES attraction(id) ON DELETE CASCADE ON UPDATE CASCADE \
+        );'
+        self.cursor.execute(sql)
+        self.mysql_conn.commit()
+        print("已新增訂單資料表.")
+
     # 寫入資料
     def insert_data(self, data):
         sql = 'INSERT INTO attraction (name, category, description, address, transport, mrt , lat, lng, images) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -167,4 +183,7 @@ db_manager = DBManager(dbconfig)
 
 
 # 6.新增會員資料表
-db_manager.create_member()
+# db_manager.create_member()
+
+# 7.新增訂單資料表
+db_manager.create_booking()
