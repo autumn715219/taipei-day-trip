@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:900');
+@import 'style';
+main{
+    margin-top: 54px;
+    min-height: 73VH;
+}
+.box{
+    padding: 0 5%;
+
+    @include pc{ 
+        padding: 0 100px;
+   }
+
+}
+.thankyou {
+    text-align: center;
+    .title {
+        margin-top: 130px;
+        font: 48px/1.5 "Raleway", system-ui, Helvetica, Arial;
+        font-weight: 900;
+        color: $maincolor;
+    }
+    .thank-img{
+        width: 28%;
+        margin: 0 auto;
+        @include mb{
+            width: 50%;
+        }
+    }
+    .order-txt{
+        font-size: 24px;
+        line-height: 2;
+        font-weight: 900;
+        color: #757575;
+        @include mb{
+            font-size: 20px;
+        }
+    }
+    .btn-back a{
+        display: block;
+        width: 100px;
+        margin: 10px auto;
+        padding: 10px 10px;
+        border-radius: 5px;
+        color:#FFF;
+        background: #757575;
+    }
+}

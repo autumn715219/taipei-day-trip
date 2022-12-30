@@ -627,7 +627,7 @@ main {
   background: #e5e5e5 url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CjxyZWN0IHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0idXJsKCNwYXR0ZXJuMCkiLz4KPGRlZnM+CjxwYXR0ZXJuIGlkPSJwYXR0ZXJuMCIgcGF0dGVybkNvbnRlbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPgo8dXNlIHhsaW5rOmhyZWY9IiNpbWFnZTBfMl8xMTQiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CjwvcGF0dGVybj4KPGltYWdlIGlkPSJpbWFnZTBfMl8xMTQiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFFQUFBQUJBQ0FZQUFBQ3FhWEhlQUFBRXBrbEVRVlI0QWUyYWJZaVVWUlRIWjhIQUVMOFVaS0orQ01JSWd5Z1F3YkNVQ0JMcEJmSkx4T2EyODV6L3VUc3J5QW9waU1KQzlFSit5QmRVQ25vaG82QlFFQXVLQXNFRmU2RStDQ1pKZ1ZnR0dwRVpWSWpteG9rOWw4djIzSHRuZHVaZUI3a0x3eG1ZLy9uZi8vbHhuM21lWjU5cE5NcGZJVkFJRkFLRlFDRlFDQlFDdlNjd1FFUXRBQ2NCWEFFdzJlRkxlazR3czJrMEdnTzlqNWZZRWNEdURnY09BZHFaT0c1djdRRXNjNGIvZzRqMkFSanY4UFVXZ0wvVmg0aVc5alpsUWpjaWVrbURNL1A5TTEyS21SOTJmRjZZcVUvMlBtWitVNE4zdWZpQStnQjRvMHV2Zk8wQVpQditkMHgzdTZyNmlHZTNYdG42QzREcmNRYzRXekYwdXVxYnozcSszUXVBenEva3J1bHVLRHVnNXdRYWpZWXg1aFptL3J5UEQ0Y0p5WmhpZHVzSllGMi9BaUNpcDJ6UVZHK1krYUYrQlFCZ1ZhcTVyYTh4NXA1K0JXQ011Y3NHVGZXbTFXb3RhZ1BBKzdvK0VYM3AwZHRMVy9mS2NacjJ1UG9BZUcvYVovODd5N1JhclZ0Vm42eU9qWTNkR0F2Q3pCOXJBQUNmZXZUdEFKaFFIeUw2eU9OalFZeVBqODlTZmRJSzRNOUltR01hQU1BQmp6WUtRSVoyZkNZOFBncmdkOVVtcndET1JNS2MwQkR1cmZHMG5pZ0EyZmJxQStENHRINGRYT3NQcWsxZUFYd2RDZk9qaGdDdzA2TnRCOENyanM5cGo0OEMrRUsxeWFzYzQ1RXdkanNTMFhNZWJSUUFNMi9YWVFEODZ2RlJBQitxTm5sbDVuY2lZYTVvQ0FEUGVyUlJBQUMyT1Q2WFBENEt3UHBwVDdMS3pEc2lZU1lIQndmblNBQUE3Tkhhd0w3VElCRnRFSStob2FIWkhnOGRmdExkTGNrR1YyTm0zaG9MQkdDKzZKbjVTWTgyQ29DWm54RVB1YjczZUxnQU5tdSs1RlVlVnNRQ2pZeU0zQ0ZCQUt6eGFLTUFpT2dKOFdnMm03ZDdQRndBemVTRDZ3TE12RFlXU1ArUFgxWFZDbzgyQ2tEdU82WWczdXZ4Y0FFOHB2bVNWMlBNeWpZQ1BTaEJtUGx1anpZS1FCNndpQWNSUGVEeHNBQ01NZmNsSDF3WElLSWxzVUFBSGhkOVZWVzNlYlJSQUZWVjNTa2V6UHlJeDhNQzBFTk9NeWF0VlZYTml3Vmk1cWNseE9qbzZNMGViUlNBTVdhQmVNaDl2c2ZEQXBCMWtnN3Rtc3ROQjRDcmtWRHJwUWZBRFI1ZEZNRHc4UERjS1k4Umo0Y0NrT3VPdkUrUUFWeUloTnFpME55SG5FNVBETUEvT2hRemIzYjZkR2kzL3FKclphc0F2ZytGa2dla0dnYkErUnB0RE1CRnAvLzVtbjRYd0VuVlpxdHQvSE4wcjRieHdJb0IrRW43aVdoWENBQXpIMVZ0dHNyTWgwT2hBT3pYTUFDK3FkSEdBSHpyOU51SHJUVStjaGw4VUxYWmF1QStYN2ZtSVExRFJFZHFnZ2NCeUE3VGZobXdwbC9YRVFDdnFUWmJCZkJ5S0pRTXJXRUFIS3JSQmdFQStNVHAvNnltM3dXUS84Y1RBRGFGUXNtMmR3YllYNk1OQWlDaUQ1eityMnI2WFFBYlZadXRFdEZ3S0pSODhXa1ladDVUb3cwQ0FQQzY5Z1A0cnFiZkFpQ2lRZFZtcTBUMGFDaVVuUG8wRElBWGE3UXhBSzg0L1QvWDlMc0FWcXMyV3lXaTVhRlFPVC9UTzg5c3c4dENSTFE0NTVDaHRlU0dLK3Z3c2xpejJid3BGQ3JuWjNyUGtCdUMvSVJ0SmorQnRjZHVqeUJkeWoyNFhRL0FiejBhb2hzbzUyeWczRzhBbk9vREFQWXBWTzc1NVl2dzNUNEE4SGIyd1hYQnFVZmw4dkR6TElDL0FGeWUrbDZRNzRaVUwxbEQxcEkxRDFSVnRWRHpsRm9JRkFLRlFDRlFDQlFDaFVBbkJQNEZMWDh6UGlyR2ZjWUFBQUFBU1VWT1JLNUNZSUk9Ii8+CjwvZGVmcz4KPC9zdmc+Cg==") no-repeat center center;
   background-size: 100%;
   border-radius: 5px;
-  border: 1px solid #666;
+  border: 1px solid #7a7a7a;
   -webkit-transition: .2s ease;
   transition: .2s ease;
   -webkit-filter: brightness(120%);
@@ -652,6 +652,7 @@ main {
 .booking .box-form .title {
   line-height: 1;
   margin-bottom: 24px;
+  font-size: 20px;
 }
 
 .booking .box-form .form-notice {
@@ -718,5 +719,45 @@ main {
   .booking .booking-fee button {
     margin: 10px 0 10px;
   }
+}
+
+/*TapPay style*/
+.tappay-field-focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.has-error .tappay-field-focus {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+
+.has-success .tappay-field-focus {
+  border-color: #2b542c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+}
+
+.tpfield {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 5px 0;
+  padding: 10px;
+  height: 38px;
+  width: 230px;
+  font-size: 16px;
+  background-color: #FFF;
+  border: 1px solid #666666;
+  border-radius: 5px;
+}
+
+label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 /*# sourceMappingURL=booking.css.map */

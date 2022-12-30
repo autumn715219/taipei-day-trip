@@ -159,7 +159,6 @@ async function loginAccount(data) {
       let result = await resp.json();
       if (result.ok) {
         loginAlert.classList.add('error');
-
         window.location.reload(); //重整
       }else {
         loginAlert.classList.add('error');

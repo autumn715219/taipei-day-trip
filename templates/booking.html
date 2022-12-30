@@ -87,13 +87,13 @@
                     <div class="title">您的聯絡資訊</div>
                     <div class="form">
                         <label for="userNameInput">聯絡姓名：</label>
-                        <input type="text" id="userNameInput" name="userNameInput" placeholder="輸入你的姓名">
+                        <input type="text" id="userNameInput" name="userNameInput" placeholder="輸入你的姓名" required>
                         <br>
                         <label for="userEmailInput">聯絡信箱：</label>
-                        <input type="text" id="userEmailInput" name="userEmailInput" placeholder="輸入你的Email">
+                        <input type="text" id="userEmailInput" name="userEmailInput" placeholder="輸入你的Email" required>
                         <br>
                         <label for="userPhoneInput">手機號碼：</label>
-                        <input type="text" id="userPhoneInput" name="userPhoneInput" placeholder="輸入你的手機號碼">
+                        <input type="tel" id="userPhoneInput" name="userPhoneInput" placeholder="輸入你的手機號碼" maxlength="10" pattern="^09[0-9]{8}$" required>
                         <div class="form-notice">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</div>
                     </div>
                 </div>
@@ -102,19 +102,20 @@
                     <div class="title">信用卡付款資訊</div>
                     <div class="form">
                         <label for="cardNum">卡片號碼：</label>
-                        <input type="text" id="cardNum" name="cardNum" pattern="[0-9\s]{13,19}" maxlength="16" placeholder="xxxx xxxx xxxx xxxx" required>
+                        <div class="tpfield" id="card-number"></div>
                         <br>
                         <label for="cardExp">過期時間：</label>
-                        <input type="text" id="cardExp" name="cardExp" placeholder="MM/YY" required>
+                        <div class="tpfield" id="card-expiration-date"></div>
                         <br>
                         <label for="cardCsv">驗證密碼：</label>
-                        <input type="text" id="cardCsv" name="cardCsv" placeholder="CSV" required>
+                        <div class="tpfield" id="card-ccv"></div>
                     </div>
+
                 </div>
                 <hr>
                 <div class="box booking-fee">
                     <div class="fee-dollar">總價：新台幣<span id="fee"></span>元</div>
-                    <button class="fee-button" type="submit" id="submit">確認訂購並付款</button>
+                    <button type="submit" class="btn btn-default" id="confrimBtn">確認訂購並付款</button>
                 </div>
             </div>
         </main>
@@ -123,6 +124,9 @@
         </div>
     </div>
     <script src="/js/login.js"></script>
+    <script src="https://js.tappaysdk.com/sdk/tpdirect/v5.14.0"></script>
     <script src="/js/booking.js"></script>
+
+    
 </body>
 </html>
