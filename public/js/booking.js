@@ -169,47 +169,47 @@ TPDirect.card.setup({
     }
 })
 
-TPDirect.card.onUpdate(function (update) {
-    // update.canGetPrime === true
-    // --> you can call TPDirect.card.getPrime()
-    if (update.canGetPrime) {
-        // Enable submit Button to get prime.
-        confrimBtn.removeAttribute('disabled')
-    } else {
-        // Disable submit Button to get prime.
-        confrimBtn.setAttribute('disabled', true)
-    }
+// TPDirect.card.onUpdate(function (update) {
+//     // update.canGetPrime === true
+//     // --> you can call TPDirect.card.getPrime()
+//     if (update.canGetPrime) {
+//         // Enable submit Button to get prime.
+//         confrimBtn.removeAttribute('disabled')
+//     } else {
+//         // Disable submit Button to get prime.
+//         confrimBtn.setAttribute('disabled', true)
+//     }
 
-    // cardTypes = ['mastercard', 'visa', 'jcb', 'amex', 'unionpay','unknown']
-    if (update.cardType === 'visa') {
-        // Handle card type visa.
-    }
+//     // cardTypes = ['mastercard', 'visa', 'jcb', 'amex', 'unionpay','unknown']
+//     if (update.cardType === 'visa') {
+//         // Handle card type visa.
+//     }
 
-    // number 欄位是錯誤的
-    if (update.status.number === 2) {
-        // setNumberFormGroupToError()
-    } else if (update.status.number === 0) {
-        // setNumberFormGroupToSuccess()
-    } else {
-        // setNumberFormGroupToNormal()
-    }
+//     // number 欄位是錯誤的
+//     if (update.status.number === 2) {
+//         // setNumberFormGroupToError()
+//     } else if (update.status.number === 0) {
+//         // setNumberFormGroupToSuccess()
+//     } else {
+//         // setNumberFormGroupToNormal()
+//     }
 
-    if (update.status.expiry === 2) {
-        // setNumberFormGroupToError()
-    } else if (update.status.expiry === 0) {
-        // setNumberFormGroupToSuccess()
-    } else {
-        // setNumberFormGroupToNormal()
-    }
+//     if (update.status.expiry === 2) {
+//         // setNumberFormGroupToError()
+//     } else if (update.status.expiry === 0) {
+//         // setNumberFormGroupToSuccess()
+//     } else {
+//         // setNumberFormGroupToNormal()
+//     }
 
-    if (update.status.ccv === 2) {
-        // setNumberFormGroupToError()
-    } else if (update.status.ccv === 0) {
-        // setNumberFormGroupToSuccess()
-    } else {
-        // setNumberFormGroupToNormal()
-    }
-})
+//     if (update.status.ccv === 2) {
+//         // setNumberFormGroupToError()
+//     } else if (update.status.ccv === 0) {
+//         // setNumberFormGroupToSuccess()
+//     } else {
+//         // setNumberFormGroupToNormal()
+//     }
+// })
 
 // 觸發 getPrime 方法
 confrimBtn.addEventListener('click', function (event) {
@@ -249,7 +249,7 @@ confrimBtn.addEventListener('click', function (event) {
                     noticeMsg.textContent = '請填寫完整信用卡資訊';
                     document.getElementById('notice').style.display = 'block'; 
                 }else{
-                    //alert(result.card.prime);
+                    alert(result.card.prime);
                     // 傳資料到後端
                     let postData = {
                         "prime": result.card.prime,
