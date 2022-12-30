@@ -2,9 +2,7 @@ from flask import *
 import api.connector as connector
 from flask import request
 import requests
-# 登入會員驗證
 import jwt
-# key加密
 import os
 from dotenv import load_dotenv
 from datetime import datetime
@@ -88,12 +86,10 @@ def getorders():
                     "x-api-key": partner_key
                     }
                 response = requests.post(url, headers=headers, json=postData)
-
                 # print("tappay回傳結果")
                 # print(response)
                 # print("Status Code", response.status_code)
                 # print("JSON Response ", response.json())
-
 
                 if (response.json())["status"] == 0:
                     # 付款成功，紀錄付款資訊；將訂單付款狀態改為【已付款】，將訂單編號傳回前端。

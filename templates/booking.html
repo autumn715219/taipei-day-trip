@@ -59,6 +59,8 @@
         </div>
 
         <main>
+            <div id="loading"></div>
+
             <div class="Area Area-1200 title greet">
                 <div class="box">
                     您好，<span id="userName"></span>，待預定的行程如下：
@@ -93,7 +95,7 @@
                         <input type="text" id="userEmailInput" name="userEmailInput" placeholder="輸入你的Email" required>
                         <br>
                         <label for="userPhoneInput">手機號碼：</label>
-                        <input type="tel" id="userPhoneInput" name="userPhoneInput" placeholder="輸入你的手機號碼" maxlength="10" pattern="^09[0-9]{8}$" required>
+                        <input type="tel" id="userPhoneInput" name="userPhoneInput" placeholder="輸入你的手機號碼" size="10" pattern="^09[0-9]{8}$" required>
                         <div class="form-notice">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</div>
                     </div>
                 </div>
