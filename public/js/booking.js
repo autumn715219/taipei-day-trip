@@ -162,7 +162,7 @@ TPDirect.card.setup({
         }
     },
     // 此設定會顯示卡號輸入正確後，會顯示前六後四碼信用卡卡號
-    isMaskCreditCardNumber: true,
+    isMaskCreditCardNumber: false,
     maskCreditCardNumberRange: {
         beginIndex: 6,
         endIndex: 11
@@ -280,13 +280,15 @@ confrimBtn.addEventListener('click', function (event) {
                     }).then(response => {
                         return response.json();
                     }).then(function (data) {
-                        if (data.data.payment.status === 0) {
-                            toggleLoading(true);
-                            console.log("成功");
-                            location.href = "/thankyou?number=" + data.data.number
-                            //location.href = "/thankyou";
-                        }
-                        else {
+                        console.log(data)
+                        if(data){
+                            if (data.data.payment.status === 0) {
+                                toggleLoading(true);
+                                console.log("成功");
+                                location.href = "/thankyou?number=" + data.data.number
+                                //location.href = "/thankyou";
+                            }
+                        }else {
                             toggleLoading(true);
                             //alert("很抱歉，伺服器內部錯誤，請再試一次");
                             console.log("伺服器內部錯誤，請再試一次");

@@ -205,7 +205,7 @@ def thankyou():
             memberId = payload["id"]		
             cursor.execute('SELECT order_number FROM orders WHERE member_id = %s ORDER BY id DESC' , (memberId ,))
             result = cursor.fetchall()
-            print(result[0]["order_number"])
+            #print(result[0]["order_number"])
             return render_template("thankyou.html" ,order_number = result[0]["order_number"]) 
         else:
             return redirect("/")
