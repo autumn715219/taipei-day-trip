@@ -213,22 +213,22 @@ TPDirect.card.setup({
 
 // 觸發 getPrime 方法
 confrimBtn.addEventListener('click', function (event) {
-    if (userNameInput.value == "" || userEmailInput.value == "" || userPhoneInput.value == "") {
-        if(userNameInput.value == "" ){
-            noticeMsg.textContent = '請填寫聯絡姓名';
-            document.getElementById('notice').style.display = 'block'; 
-        }else if(userEmailInput.value == "" ){
-            noticeMsg.textContent = '請填寫聯絡email';
-            document.getElementById('notice').style.display = 'block'; 
-        }else if(userPhoneInput.value == "" ){
-            noticeMsg.textContent = '請填寫聯絡手機號碼';
-            document.getElementById('notice').style.display = 'block'; 
-        }else if(!validateEmail(userEmailInput.value)) {
-            noticeMsg.textContent = '信箱格式錯誤';
-            document.getElementById('notice').style.display = 'block'; 
-        }else if(!validatePhoneNumber(userPhoneInput.value)) {
-            noticeMsg.textContent = '手機格式錯誤';
-            document.getElementById('notice').style.display = 'block'; }
+    if(userNameInput.value == "" ){
+        noticeMsg.textContent = '請填寫聯絡姓名';
+        document.getElementById('notice').style.display = 'block'; 
+    }else if(userEmailInput.value == "" ){
+        noticeMsg.textContent = '請填寫聯絡email';
+        document.getElementById('notice').style.display = 'block'; 
+    }else if(userPhoneInput.value == "" ){
+        noticeMsg.textContent = '請填寫聯絡手機號碼';
+        document.getElementById('notice').style.display = 'block';
+    }else if(!validatePhoneNumber(userPhoneInput.value)) {
+        console.log('1')
+        noticeMsg.textContent = '手機格式錯誤';
+        document.getElementById('notice').style.display = 'block'; 
+    }else if(!validateEmail(userEmailInput.value)) {
+        noticeMsg.textContent = '信箱格式錯誤';
+        document.getElementById('notice').style.display = 'block'; 
     }else {
         TPDirect.card.getPrime(function (result) {
             // 取得 TapPay Fields 的 status
@@ -245,11 +245,11 @@ confrimBtn.addEventListener('click', function (event) {
             TPDirect.card.getPrime((result) => {
                 toggleLoading(false);
                 if (result.status !== 0) {
-                    console.log(result)
+                    //console.log(result)
                     noticeMsg.textContent = '請填寫完整信用卡資訊';
                     document.getElementById('notice').style.display = 'block'; 
                 }else{
-                    alert(result.card.prime);
+                    //alert(result.card.prime);
                     // 傳資料到後端
                     let postData = {
                         "prime": result.card.prime,
@@ -280,7 +280,7 @@ confrimBtn.addEventListener('click', function (event) {
                     }).then(response => {
                         return response.json();
                     }).then(function (data) {
-                        console.log(data)
+                        //console.log(data)
                         if(data){
                             if (data.data.payment.status === 0) {
                                 toggleLoading(true);
