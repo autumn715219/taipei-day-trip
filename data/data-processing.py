@@ -28,6 +28,7 @@ class DBManager:
 
     # 關閉資料庫
     def close(self):
+        self.cursor.close()
         self.mysql_conn.close()
         print("關閉資料庫")
 
@@ -64,19 +65,59 @@ class DBManager:
 
     # 新增訂單資料表
     def create_booking(self):
-        sql = 'CREATE TABLE booking(\
-            id BIGINT PRIMARY KEY AUTO_INCREMENT, \
-            member_id BIGINT NOT NULL,\
-            attraction_id BIGINT NOT NULL,\
-            date DATE NOT NULL,\
-            time VARCHAR(10) NOT NULL,\
-            price INT NOT NULL DEFAULT 2000,\
-            FOREIGN KEY(member_id) REFERENCES member(id) ON DELETE CASCADE ON UPDATE CASCADE, \
-            FOREIGN KEY(attraction_id) REFERENCES attraction(id) ON DELETE CASCADE ON UPDATE CASCADE \
-        );'
+        sql = """
+        CREATE TABLE booking(
+            id BIGINT PRIMARY KEY AUTO_INCREMENT, 
+            member_id BIGINT NOT NULL,
+            attraction_id BIGINT NOT NULL,
+            date DATE NOT NULL,
+            time VARCHAR(10) NOT NULL,
+            price INT NOT NULL DEFAULT 2000,
+            FOREIGN KEY(member_id) REFERENCES member(id) ON DELETE CASCADE ON UPDATE CASCADE, 
+            FOREIGN KEY(attraction_id) REFERENCES attraction(id) ON DELETE CASCADE ON UPDATE CASCADE 
+        );
+        """
         self.cursor.execute(sql)
         self.mysql_conn.commit()
         print("已新增訂單資料表.")
+
+    # 新增結帳資料表
+    def create_order(self):
+        sql = """
+        CREATE TABLE orders(
+            id BIGINT PRIMARY KEY AUTO_INCREMENT, 
+            order_number VARCHAR(255) NOT NULL,
+            member_id BIGINT NOT NULL,
+            attraction_id BIGINT NOT NULL,
+            date DATE NOT NULL,
+            time VARCHAR(10) NOT NULL,
+            price INT NOT NULL DEFAULT 2000,
+            contact_name VARCHAR(30) NOT NULL,
+            contact_email VARCHAR(50) NOT NULL,
+            contact_phone VARCHAR(10) NOT NULL,
+            status VARCHAR(30) NOT NULL,
+            FOREIGN KEY(member_id) REFERENCES member(id) ON DELETE CASCADE ON UPDATE CASCADE, 
+            FOREIGN KEY(attraction_id) REFERENCES attraction(id) ON DELETE CASCADE ON UPDATE CASCADE 
+        );
+        """
+        self.cursor.execute(sql)
+        self.mysql_conn.commit()
+        print("已新增結帳資料表.")
+
+    # 新增付款資料表
+    def create_payment(self):
+        sql = """
+        CREATE TABLE payment(
+            id BIGINT PRIMARY KEY AUTO_INCREMENT, 
+            order_id BIGINT NOT NULL,
+            paid_time DATETIME NOT NULL,
+            message VARCHAR(500) NOT NULL,
+            FOREIGN KEY(order_id) REFERENCES orders(id)
+        );
+        """
+        self.cursor.execute(sql)
+        self.mysql_conn.commit()
+        print("已新增付款資料表.")
 
     # 寫入資料
     def insert_data(self, data):
@@ -181,9 +222,17 @@ db_manager = DBManager(dbconfig)
 #   ]
 # }
 
-
 # 6.新增會員資料表
 # db_manager.create_member()
 
 # 7.新增訂單資料表
-db_manager.create_booking()
+# db_manager.create_booking()
+
+# 8.新增結帳資料表
+db_manager.create_order()
+
+# 9.新增付款資訊資料表
+# db_manager.create_payment()
+
+
+db_manager.close()

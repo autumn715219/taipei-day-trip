@@ -2,7 +2,6 @@ from flask import *
 import api.connector as connector
 # 登入會員驗證
 import jwt
-from datetime import datetime, timedelta
 # key加密
 import os
 from dotenv import load_dotenv
@@ -55,7 +54,6 @@ def getBooking():
         except Exception as e:
             print('Exception')
             return make_response({'error': True, "message": str(e)})
-        
         finally:
             cursor.close()
             cnx.close()
@@ -95,11 +93,11 @@ def createBooking():
         cursor.execute(sql, val)
         cnx.commit()
         cursor.close()
-        cnx.close()
         return make_response(jsonify({"ok": True}), 200)
     except Exception as e:
         return make_response({'error': True, "message": str(e)})
-
+    finally:
+        cnx.close()
 
 
 
@@ -118,10 +116,10 @@ def deleteBooking():
         sql='DELETE FROM booking WHERE member_id= %s;'
         cursor.execute(sql,(memberId,))
         cnx.commit()
+        cursor.close()
         return make_response(jsonify({'ok': True}), 200)
     except Exception as e:
         print(e)
         return make_response({'error': True, 'message': str(e)})
     finally:
-        cursor.close()
         cnx.close()

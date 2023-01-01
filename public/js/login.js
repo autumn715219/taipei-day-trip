@@ -159,7 +159,6 @@ async function loginAccount(data) {
       let result = await resp.json();
       if (result.ok) {
         loginAlert.classList.add('error');
-
         window.location.reload(); //重整
       }else {
         loginAlert.classList.add('error');
@@ -261,7 +260,10 @@ function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
-
+function validatePhoneNumber(phoneNumber) {
+  const phoneRegex = /^(09)\d{8}$/;
+  return phoneRegex.test(phoneNumber);
+}
 
 /*-----------------
  * 彈出視窗函式

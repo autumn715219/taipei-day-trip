@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Raleway:900");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap:wght@400;500;700");
 /* 清除及預設CSS */
 * {
@@ -487,6 +488,7 @@ hr {
 
 main {
   margin-top: 54px;
+  min-height: 73VH;
 }
 
 .box {
@@ -499,266 +501,48 @@ main {
   }
 }
 
-.greet {
-  color: #666;
-  margin: 89px auto 35px;
+.thankyou {
+  text-align: center;
 }
 
-.greet.title {
-  font-size: 19px;
-  font-weight: 700;
-}
-
-@media screen and (max-width: 767px) {
-  .greet {
-    margin: 89px auto 35px;
-  }
-}
-
-.noBooking {
-  height: 70vh;
-  color: #666;
-}
-
-@media screen and (max-width: 767px) {
-  .noBooking {
-    height: 65vh;
-  }
-}
-
-.booking {
-  display: none;
-  color: #666;
-  font-size: 16px;
-}
-
-.booking .booking-att {
-  position: relative;
-}
-
-@media screen and (min-width: 1201px) {
-  .booking .booking-att {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.booking .booking-att .title {
-  -ms-grid-column: 1;
-      grid-column-start: 1;
-  grid-column-end: 3;
-  width: 100%;
-  white-space: nowrap;
-}
-
-@media screen and (min-width: 1201px) {
-  .booking .booking-att .att-img {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    grid-column-end: 2;
-    width: 266px;
-    height: 200px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .booking .booking-att .att-img {
-    width: 100%;
-  }
-}
-
-.booking .booking-att .att-img img {
-  width: 100%;
-  aspect-ratio: 480/320;
-  -o-object-fit: fill;
-     object-fit: fill;
-}
-
-.booking .booking-att .att-info {
-  font-weight: 700;
-}
-
-@media screen and (min-width: 1201px) {
-  .booking .booking-att .att-info {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-column: 2;
-        grid-column-start: 2;
-    grid-column-end: 3;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .booking .booking-att .att-info {
-    line-height: 2;
-  }
-}
-
-.booking .booking-att .att-info span {
-  font-weight: 500;
-}
-
-.booking .booking-att .att-info .att-title {
-  margin: 0 0 10px;
+.thankyou .title {
+  margin-top: 130px;
+  font: 48px/1.5 "Raleway", system-ui, Helvetica, Arial;
+  font-weight: 900;
   color: #448899;
 }
 
-.booking .booking-att .att-delete {
-  position: absolute;
-  right: 5%;
-  bottom: 0;
+.thankyou .thank-img {
+  width: 28%;
+  margin: 0 auto;
 }
 
-@media screen and (min-width: 1201px) {
-  .booking .booking-att .att-delete {
-    right: 100px;
-    top: 0;
-    bottom: auto;
+@media screen and (max-width: 767px) {
+  .thankyou .thank-img {
+    width: 50%;
   }
 }
 
-.booking .booking-att .att-delete a {
+.thankyou .order-txt {
+  font-size: 24px;
+  line-height: 2;
+  font-weight: 900;
+  color: #757575;
+}
+
+@media screen and (max-width: 767px) {
+  .thankyou .order-txt {
+    font-size: 20px;
+  }
+}
+
+.thankyou .btn-back a {
   display: block;
-  width: 30px;
-  height: 30px;
-  background: #e5e5e5 url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CjxyZWN0IHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0idXJsKCNwYXR0ZXJuMCkiLz4KPGRlZnM+CjxwYXR0ZXJuIGlkPSJwYXR0ZXJuMCIgcGF0dGVybkNvbnRlbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPgo8dXNlIHhsaW5rOmhyZWY9IiNpbWFnZTBfMl8xMTQiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CjwvcGF0dGVybj4KPGltYWdlIGlkPSJpbWFnZTBfMl8xMTQiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFFQUFBQUJBQ0FZQUFBQ3FhWEhlQUFBRXBrbEVRVlI0QWUyYWJZaVVWUlRIWjhIQUVMOFVaS0orQ01JSWd5Z1F3YkNVQ0JMcEJmSkx4T2EyODV6L3VUc3J5QW9waU1KQzlFSit5QmRVQ25vaG82QlFFQXVLQXNFRmU2RStDQ1pKZ1ZnR0dwRVpWSWpteG9rOWw4djIzSHRuZHVaZUI3a0x3eG1ZLy9uZi8vbHhuM21lWjU5cE5NcGZJVkFJRkFLRlFDRlFDQlFDdlNjd1FFUXRBQ2NCWEFFdzJlRkxlazR3czJrMEdnTzlqNWZZRWNEdURnY09BZHFaT0c1djdRRXNjNGIvZzRqMkFSanY4UFVXZ0wvVmg0aVc5alpsUWpjaWVrbURNL1A5TTEyS21SOTJmRjZZcVUvMlBtWitVNE4zdWZpQStnQjRvMHV2Zk8wQVpQditkMHgzdTZyNmlHZTNYdG42QzREcmNRYzRXekYwdXVxYnozcSszUXVBenEva3J1bHVLRHVnNXdRYWpZWXg1aFptL3J5UEQ0Y0p5WmhpZHVzSllGMi9BaUNpcDJ6UVZHK1krYUYrQlFCZ1ZhcTVyYTh4NXA1K0JXQ011Y3NHVGZXbTFXb3RhZ1BBKzdvK0VYM3AwZHRMVy9mS2NacjJ1UG9BZUcvYVovODd5N1JhclZ0Vm42eU9qWTNkR0F2Q3pCOXJBQUNmZXZUdEFKaFFIeUw2eU9OalFZeVBqODlTZmRJSzRNOUltR01hQU1BQmp6WUtRSVoyZkNZOFBncmdkOVVtcndET1JNS2MwQkR1cmZHMG5pZ0EyZmJxQStENHRINGRYT3NQcWsxZUFYd2RDZk9qaGdDdzA2TnRCOENyanM5cGo0OEMrRUsxeWFzYzQ1RXdkanNTMFhNZWJSUUFNMi9YWVFEODZ2RlJBQitxTm5sbDVuY2lZYTVvQ0FEUGVyUlJBQUMyT1Q2WFBENEt3UHBwVDdMS3pEc2lZU1lIQndmblNBQUE3Tkhhd0w3VElCRnRFSStob2FIWkhnOGRmdExkTGNrR1YyTm0zaG9MQkdDKzZKbjVTWTgyQ29DWm54RVB1YjczZUxnQU5tdSs1RlVlVnNRQ2pZeU0zQ0ZCQUt6eGFLTUFpT2dKOFdnMm03ZDdQRndBemVTRDZ3TE12RFlXU1ArUFgxWFZDbzgyQ2tEdU82WWczdXZ4Y0FFOHB2bVNWMlBNeWpZQ1BTaEJtUGx1anpZS1FCNndpQWNSUGVEeHNBQ01NZmNsSDF3WElLSWxzVUFBSGhkOVZWVzNlYlJSQUZWVjNTa2V6UHlJeDhNQzBFTk9NeWF0VlZYTml3Vmk1cWNseE9qbzZNMGViUlNBTVdhQmVNaDl2c2ZEQXBCMWtnN3Rtc3ROQjRDcmtWRHJwUWZBRFI1ZEZNRHc4UERjS1k4Umo0Y0NrT3VPdkUrUUFWeUloTnFpME55SG5FNVBETUEvT2hRemIzYjZkR2kzL3FKclphc0F2ZytGa2dla0dnYkErUnB0RE1CRnAvLzVtbjRYd0VuVlpxdHQvSE4wcjRieHdJb0IrRW43aVdoWENBQXpIMVZ0dHNyTWgwT2hBT3pYTUFDK3FkSEdBSHpyOU51SHJUVStjaGw4VUxYWmF1QStYN2ZtSVExRFJFZHFnZ2NCeUE3VGZobXdwbC9YRVFDdnFUWmJCZkJ5S0pRTXJXRUFIS3JSQmdFQStNVHAvNnltM3dXUS84Y1RBRGFGUXNtMmR3YllYNk1OQWlDaUQ1eityMnI2WFFBYlZadXRFdEZ3S0pSODhXa1ladDVUb3cwQ0FQQzY5Z1A0cnFiZkFpQ2lRZFZtcTBUMGFDaVVuUG8wRElBWGE3UXhBSzg0L1QvWDlMc0FWcXMyV3lXaTVhRlFPVC9UTzg5c3c4dENSTFE0NTVDaHRlU0dLK3Z3c2xpejJid3BGQ3JuWjNyUGtCdUMvSVJ0SmorQnRjZHVqeUJkeWoyNFhRL0FiejBhb2hzbzUyeWczRzhBbk9vREFQWXBWTzc1NVl2dzNUNEE4SGIyd1hYQnFVZmw4dkR6TElDL0FGeWUrbDZRNzRaVUwxbEQxcEkxRDFSVnRWRHpsRm9JRkFLRlFDRlFDQlFDaFVBbkJQNEZMWDh6UGlyR2ZjWUFBQUFBU1VWT1JLNUNZSUk9Ii8+CjwvZGVmcz4KPC9zdmc+Cg==") no-repeat center center;
-  background-size: 100%;
+  width: 100px;
+  margin: 10px auto;
+  padding: 10px 10px;
   border-radius: 5px;
-  border: 1px solid #7a7a7a;
-  -webkit-transition: .2s ease;
-  transition: .2s ease;
-  -webkit-filter: brightness(120%);
-          filter: brightness(120%);
-}
-
-.booking .booking-att .att-delete a:hover {
-  -webkit-filter: none;
-          filter: none;
-}
-
-.booking .box-form {
-  line-height: 68px;
-}
-
-@media screen and (max-width: 767px) {
-  .booking .box-form {
-    line-height: 2;
-  }
-}
-
-.booking .box-form .title {
-  line-height: 1;
-  margin-bottom: 24px;
-  font-size: 20px;
-}
-
-.booking .box-form .form-notice {
-  text-align: left;
-  line-height: 1.5;
-  margin-top: 10px;
-  font-weight: 700;
-}
-
-@media screen and (max-width: 767px) {
-  .booking .box-form .form-notice {
-    margin-top: 10px;
-  }
-}
-
-.booking .box-form input {
-  margin: 5px 0;
-  padding: 10px;
-  height: 38px;
-  width: 230px;
-  font-size: 16px;
-  background-color: #FFF;
-  border: 1px solid #666666;
-  border-radius: 5px;
-}
-
-.booking .box-form input:focus {
-  border-width: 2px;
-}
-
-.booking .box-form input.error:focus {
-  border-color: #b3062b;
-}
-
-.booking .box-form input.success:focus {
-  border-color: #158417;
-}
-
-.booking .booking-fee {
-  text-align: right;
-  margin-bottom: 50px;
-}
-
-.booking .booking-fee .fee-dollar {
-  font-weight: 700;
-}
-
-.booking .booking-fee .fee-dollar span {
-  margin: 0 5px;
-}
-
-.booking .booking-fee button {
-  margin: 25px 0 16px;
-  padding: 10px 20px;
-  line-height: 19px;
-  font-size: 19px;
   color: #FFF;
-  background: #448899;
-  cursor: pointer;
-  border-radius: 5px;
+  background: #757575;
 }
-
-@media screen and (max-width: 767px) {
-  .booking .booking-fee button {
-    margin: 10px 0 10px;
-  }
-}
-
-/*TapPay style*/
-.tappay-field-focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-
-.has-error .tappay-field-focus {
-  border-color: #843534;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
-}
-
-.has-success .tappay-field-focus {
-  border-color: #2b542c;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
-}
-
-.tpfield {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin: 5px 0;
-  padding: 10px;
-  height: 38px;
-  width: 230px;
-  font-size: 16px;
-  background-color: #FFF;
-  border: 1px solid #666666;
-  border-radius: 5px;
-}
-
-label {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-/*# sourceMappingURL=booking.css.map */
+/*# sourceMappingURL=thanks.css.map */
