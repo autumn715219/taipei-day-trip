@@ -269,9 +269,12 @@ function validatePhoneNumber(phoneNumber) {
  * 彈出視窗函式
  -----------------*/
 let popupBtns = document.querySelectorAll('.popup-btn');
+console.log(popupBtns)
 window.addEventListener("load", (event) => {
   //點擊 Btn 打開對應 popup 視窗
   popupBtns.forEach(function(btn) {
+    console.log(btn)
+
     btn.onclick = function() {
       let popup = btn.getAttribute('data-popup'); //html-->data-modal="modal2"
       document.getElementById(popup).style.display = 'block';
